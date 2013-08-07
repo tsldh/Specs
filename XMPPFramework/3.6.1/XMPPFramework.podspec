@@ -17,15 +17,15 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.frameworks = 'CoreLocation'
   s.subspec 'Core' do |core|
-    core.source_files = 'Categories/*.{h,m}', 'Core/*.{h,m}', 'Extensions/**/*.{h,m}', 'Utilities/*.{h,m}', 'Vendor/libidn/*.{h,m}', '**/XMPPFramework.h'
+    core.source_files = 'Categories/**/*.{h,m}', 'Core/**/*.{h,m}', 'Extensions/**/*.{h,m}', 'Utilities/**/*.{h,m}', 'Vendor/libidn/*.{h,m}', '**/XMPPFramework.h'
     core.resource = "Vendor/libidn/libidn.a"
     core.libraries = 'xml2','resolv','idn'
     core.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2 $(SDKROOT)/usr/include/libresolv',
                       'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/XMPPFramework/Vendor/libidn"'}
     
     core.dependency 'XMPPFramework/Authentication'
-    core.dependency 'XMPPFramework/Categories'
-    core.dependency 'XMPPFramework/Utilities'
+  #  core.dependency 'XMPPFramework/Categories'
+  #  core.dependency 'XMPPFramework/Utilities'
     core.ios.dependency 'XMPPFramework/KissXML'
     core.dependency 'CocoaLumberjack','~>1.6.2'
     core.dependency 'CocoaAsyncSocket','~>7.3.1'
@@ -36,15 +36,15 @@ Pod::Spec.new do |s|
    authentication.dependency 'XMPPFramework/Core'
   end
 
-  s.subspec 'Categories' do |categories|
-   categories.source_files =  'Categories/**/*.{h,m}'
-   categories.dependency 'XMPPFramework/Core'
-  end
+  # s.subspec 'Categories' do |categories|
+  #  categories.source_files =  'Categories/**/*.{h,m}'
+  #  categories.dependency 'XMPPFramework/Core'
+  # end
 
-  s.subspec 'Utilities' do |utilities|
-   utilities.source_files =  'Utilities/**/*.{h,m}'
-   utilities.dependency 'XMPPFramework/Core'
-  end
+  # s.subspec 'Utilities' do |utilities|
+  #  utilities.source_files =  'Utilities/**/*.{h,m}'
+  #  utilities.dependency 'XMPPFramework/Core'
+  # end
   
   s.subspec 'KissXML' do |kissxml|
    kissxml.source_files = 'Vendor/KissXML/**/*.{h,m}'
