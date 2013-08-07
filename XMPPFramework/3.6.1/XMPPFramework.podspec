@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.frameworks = 'CoreLocation'
   s.subspec 'Core' do |core|
-    core.source_files = 'Categories/**/*.{h,m}', 'Core/**/*.{h,m}', 'Extensions/**/*.{h,m}', 'Utilities/**/*.{h,m}', 'Vendor/libidn/*.{h,m}', '**/XMPPFramework.h'
+    core.source_files = 'Categories/**/*.{h,m,xcdatamodel}', 'Core/**/*.{h,m,xcdatamodel}', 'Extensions/**/*.{h,m,xcdatamodel}', 'Utilities/**/*.{h,m,xcdatamodel}', 'Vendor/libidn/*.{h,m}', '**/XMPPFramework.h'
     core.resource = "Vendor/libidn/libidn.a"
     core.libraries = 'xml2','resolv','idn'
     core.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2 $(SDKROOT)/usr/include/libresolv',
@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Authentication' do |authentication|
-   authentication.source_files =  'Authentication/**/*.{h,m}'
+   authentication.source_files =  'Authentication/**/*.{h,mxcdatamodel}'
    authentication.dependency 'XMPPFramework/Core'
   end
 
@@ -57,13 +57,13 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'CoreDataStorage' do |cds|
-    cds.source_files = 'Extensions/CoreDataStorage/**/*.{h,m}'
+    cds.source_files = 'Extensions/CoreDataStorage/**/*.{h,mxcdatamodel}'
     cds.framework  = 'CoreData'
     cds.dependency 'XMPPFramework/Core'
   end
 
   s.subspec 'Reconnect' do |rc|
-    rc.source_files = 'Extensions/Reconnect/**/*.{h,m}'
+    rc.source_files = 'Extensions/Reconnect/**/*.{h,mxcdatamodel}'
     rc.framework = 'SystemConfiguration'
     rc.dependency 'XMPPFramework/Core'
   end
