@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Authentication' do |authentication|
-   authentication.source_files =  'Authentication/**/*.{h,mxcdatamodel}'
+   authentication.source_files =  'Authentication/**/*.{h,m,xcdatamodel}'
    authentication.dependency 'XMPPFramework/Core'
   end
 
@@ -57,13 +57,13 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'CoreDataStorage' do |cds|
-    cds.source_files = 'Extensions/CoreDataStorage/**/*.{h,mxcdatamodel}'
+    cds.source_files = 'Extensions/CoreDataStorage/**/*.{h,m,xcdatamodel}'
     cds.framework  = 'CoreData'
     cds.dependency 'XMPPFramework/Core'
   end
 
   s.subspec 'Reconnect' do |rc|
-    rc.source_files = 'Extensions/Reconnect/**/*.{h,mxcdatamodel}'
+    rc.source_files = 'Extensions/Reconnect/**/*.{h,m,xcdatamodel}'
     rc.framework = 'SystemConfiguration'
     rc.dependency 'XMPPFramework/Core'
   end
